@@ -1,0 +1,87 @@
+<?php
+
+namespace phnx\VccBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * phnx\VccBundle\Entity\ClubOfficer
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class ClubOfficer
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string $name
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+	
+	/**
+	 * @ORM\ManyToOne(targetEntity="Club",inversedBy="officers")
+	 */
+	private $club;
+
+    /**
+     * Set club
+     *
+     * @param phnx\VccBundle\Entity\Club $club
+     */
+    public function setClub(\phnx\VccBundle\Entity\Club $club)
+    {
+        $this->club = $club;
+    }
+
+    /**
+     * Get club
+     *
+     * @return phnx\VccBundle\Entity\Club 
+     */
+    public function getClub()
+    {
+        return $this->club;
+    }
+}

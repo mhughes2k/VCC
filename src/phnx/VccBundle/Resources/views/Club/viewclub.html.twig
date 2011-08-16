@@ -1,0 +1,38 @@
+{% extends 'phnxVccBundle::vccbase_loggedin.html.twig' %}
+{% block title %}
+{{ club.name }}
+{% endblock %}
+{% block body %}
+<h1>{{club.name}}</h1>
+<div>
+<h2>Members</h2>
+{% if members %}
+<table>
+<tr>
+<th>
+Lastname
+</th>
+<th>
+Firstname
+</th>
+<th>
+Email
+</th>
+<th>
+Nick Name
+</th>
+</tr>
+{% for member in members %}
+	<tr><td>{{ member.lastname }}</td>
+	<td>{{ member.firstname }}</td>
+	<td>{{ member.emailaddress }}</td>
+	<td>{{ member.nickname }}</td>
+	</tr>
+{% endfor %}
+</table>
+
+{% else %}
+No Members
+{% endif %}
+</div>
+{% endblock %}

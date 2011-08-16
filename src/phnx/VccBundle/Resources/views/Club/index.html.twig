@@ -1,0 +1,14 @@
+{% extends 'phnxVccBundle::vccbase_loggedin.html.twig' %}
+{% block title %}
+Clubs
+{% endblock %}
+{% block body %}
+
+<ul>
+{% for club in clubs%}
+	<li><a href="{{ path('phnxVccBundle_viewclub',{'clubid':club.id}) }}">
+	{{ club.name }}</a></a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}

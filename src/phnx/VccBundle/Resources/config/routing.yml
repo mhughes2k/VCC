@@ -1,0 +1,48 @@
+phnxVccBundle_homepage:
+    pattern:  /
+    defaults: { _controller: phnxVccBundle:Default:index }
+
+phnxVccBundle_login:
+    pattern: /login
+    defaults: { _controller: phnxVccBundle:Security:login}
+
+phnxVccBundle_logincheck:
+    pattern: /login_check
+
+phnxVccBundle_logout:
+    pattern: /logout
+    defaults: { _controller: phnxVccBundle:User:logout}
+
+phnxVccBundle_addclub:
+    pattern: /club/add
+    defaults: { _controller: phnxVccBundle:Club:add }
+    
+phnxVccBundle_deleteclub:
+    pattern: /club/delete/{clubid}
+    defaults: { _controller: phnxVccBundle:Club:delete } 
+    
+phnxVccBundle_viewclubs:
+    pattern: /club
+    defaults: { _controller: phnxVccBundle:Club:index}
+    
+phnxVccBundle_viewclub:
+    pattern: /club/{clubid}
+    defaults: { _controller: phnxVccBundle:Club:view, clubid:0 }
+
+
+phnxVccBundle_users:
+    pattern: /user
+    defaults: { _controller: phnxVccBundle:User:index}
+
+phnxVccBundle_register:
+    pattern: /register
+    defaults: { _controller: phnxVccBundle:User:register}
+
+phnxVccBundle_create_user:
+    pattern: /create
+    defaults: { _controller: phnxVccBundle:User:create}
+
+phnxVccBundle_runs:
+    pattern: /runs
+    defaults: { _controller: phnxVccBundle:Run:index}
+

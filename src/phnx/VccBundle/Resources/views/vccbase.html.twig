@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% block title %}VCC{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+    <div style='width:200px;float:left;border:1px silver solid;padding:10px;margin-right:5px;'>
+    <div>Menu</div>
+	<ul>
+	<li><a href="{{ path('phnxVccBundle_register') }}">Register</a></li>
+	<li><a href="{{ path('phnxVccBundle_login') }}">Login</a></li>
+	</ul>
+    </div>
+    <div>
+    {% block content_title %}
+    {% endblock %}
+    </div>
+    <div id="main_content" style='margin-left:240px;border:1px silver solid;padding:10px;margin-right:5px;'>
+        {% block body %}{% endblock %}
+    </div>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

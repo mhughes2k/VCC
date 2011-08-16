@@ -1,0 +1,12 @@
+{% extends 'phnxVccBundle::vccbase.html.twig' %}
+{% block title %}
+Welcome to VCC
+{% endblock %}
+{% block body %}
+<h2>Register</h2>
+<form action="{{ path('phnxVccBundle_create_user') }}" method="post" {{ form_enctype(form) }}>
+{{ form_widget(form) }}
+
+<input type='submit' />
+</form>
+{% endblock %}

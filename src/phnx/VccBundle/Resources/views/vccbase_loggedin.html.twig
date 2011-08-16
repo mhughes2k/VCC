@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% block title %}VCC{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+    <div style='width:200px;float:left;border:1px silver solid;padding:10px;margin-right:5px;'>
+    <div>Menu</div>
+    Hello {{ app.user.displayname }}.
+    <ul>
+    	<li>
+    	{% if is_granted('ROLE_CLUB_ADMIN') %}<a href="{{ path('phnxVccBundle_viewclubs') }}">Club</a>
+    	{% else %}
+    	Club
+    	{% endif %}
+    	</li>
+    	
+    	<ul>
+    		<li>Details</li>
+    		<li>Officers</li>
+    		<li>Members</li>
+    		<li>Routes</li>
+    		<li>Runs/Events</li>
+    		<ul>
+    			<li>Runs</li>
+	    		<li>Events</li>
+	    	</ul>
+    	</ul>
+    	<li>User</li>
+    	<ul>
+    		<li>My Details</li>
+    		<li>My Routes</li>
+    		<li>Plan a Run</li>
+    	</ul>
+    	<li><a href="{{ path('phnxVccBundle_logout') }}">Logout</a></li>
+    </ul>
+    
+    </div>
+    <div>
+    {% block content_title %}
+    {% endblock %}
+    </div>
+    <div id="main_content" style='margin-left:240px;border:1px silver solid;padding:10px;margin-right:5px;'>
+        {% block body %}{% endblock %}
+    </div>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
