@@ -1,3 +1,8 @@
+phnxTrainingPlannerBundle:
+    resource: "@phnxTrainingPlannerBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 phnxVccBundle:
     resource: "@phnxVccBundle/Resources/config/routing.yml"
     prefix:   /
