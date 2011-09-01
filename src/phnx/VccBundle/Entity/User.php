@@ -215,6 +215,10 @@ class User implements UserInterface
      */
     private $clubs;
     
+	/**
+    * @ORM\OneToMany(targetEntity="phnx\TrainingPlannerBundle\Entity\TrainingPlan", mappedBy="user")
+    */
+    private $trainingplans;
     
     public function __construct() {
     	$this->clubs = new ArrayCollection();
