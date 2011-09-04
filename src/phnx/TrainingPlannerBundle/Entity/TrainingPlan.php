@@ -60,7 +60,57 @@ class TrainingPlan
     }
 
 	/**
-	*ORM\ManyToOne(targetEntity="phnx\VccBundle\Entity\User",inversedBy="trainingplans")
+	*@ORM\ManyToOne(targetEntity="phnx\VccBundle\Entity\User",inversedBy="trainingplans")
+	*
 	*/
-    private $user;
+    protected $user;
+
+    /**
+     * Set user
+     *
+     * @param phnx\VccBundle\Entity\User $user
+     */
+    public function setUser(\phnx\VccBundle\Entity\User $user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * Get user
+     *
+     * @return phnx\VccBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+    
+    /**
+     *@ORM\OneToMany(targetEntity="phnx\TrainingPlannerBundle\Entity\Entry",mappedBy="TrainingPlan")
+     */
+    protected $Entries;
+    public function __construct()
+    {
+        $this->Entries = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add Entries
+     *
+     * @param phnx\TrainingPlannerBundle\Entity\Entry $entries
+     */
+    public function addEntries(\phnx\TrainingPlannerBundle\Entity\Entry $entries)
+    {
+        $this->Entries[] = $entries;
+    }
+
+    /**
+     * Get Entries
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getEntries()
+    {
+        return $this->Entries;
+    }
 }

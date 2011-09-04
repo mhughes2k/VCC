@@ -47,8 +47,17 @@ phnxVccBundle_runs:
     defaults: { _controller: phnxVccBundle:Run:index}
 
 training_home:
-    pattern: /user/training
+    pattern: /training
     defaults: { _controller: phnxTrainingPlannerBundle:TrainingPlan:index}
+    
+training_plan_create_plan:
+    pattern: /training/create
+    defaults: { _controller: phnxTrainingPlannerBundle:TrainingPlan:create}
+
 training_view:
     pattern: /user/training/{planid}
     defaults: { _controller: phnxTrainingPlannerBundle:TrainingPlan:view, planid:0}
+
+training_add_entry:
+    pattern: /user/training/{planid}/entry/create
+    defaults: { _controller: phnxTrainingPlannerBundle:TrainingPlan:createEntry}

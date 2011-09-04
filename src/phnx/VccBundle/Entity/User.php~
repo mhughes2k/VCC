@@ -215,6 +215,10 @@ class User implements UserInterface
      */
     private $clubs;
     
+	/**
+    * @ORM\OneToMany(targetEntity="phnx\TrainingPlannerBundle\Entity\TrainingPlan", mappedBy="user")
+    */
+    private $trainingplans;
     
     public function __construct() {
     	$this->clubs = new ArrayCollection();
@@ -283,4 +287,24 @@ class User implements UserInterface
 	public function getSalt() {
 		return "";
 	}
+
+    /**
+     * Add trainingplans
+     *
+     * @param phnx\TrainingPlannerBundle\Entity\TrainingPlan $trainingplans
+     */
+    public function addTrainingplans(\phnx\TrainingPlannerBundle\Entity\TrainingPlan $trainingplans)
+    {
+        $this->trainingplans[] = $trainingplans;
+    }
+
+    /**
+     * Get trainingplans
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getTrainingplans()
+    {
+        return $this->trainingplans;
+    }
 }

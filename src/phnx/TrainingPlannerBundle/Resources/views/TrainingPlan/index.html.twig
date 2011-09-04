@@ -1,7 +1,23 @@
-{% extends 'phnxVccBundle::vccbase.html.twig' %}
+{% extends 'phnxVccBundle::vccbase_loggedin.html.twig' %}
 {% block title %}
 Training Plans
 {% endblock %}
 {% block body %}
+
+<div>
+<form action="{{ path('training_plan_create_plan') }}" method="post" {{ form_enctype(form) }}>
+{{ form_widget(form) }}
+<input type='submit' />
+</form>
+</div>
+<div>
 Training Plans
+<table>
+{% for plan in plans %}
+	<tr>
+	<td><a href='{{ path('training_view',{'planid':plan.id}) }}'>{{ plan.startdate | date('d/m/Y') }}</a></td>
+	</tr>
+{% endfor %}
+</table>
+</div>
 {% endblock %}

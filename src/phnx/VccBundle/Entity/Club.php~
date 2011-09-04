@@ -82,6 +82,7 @@ class Club
     
     public function __construct() {
     	$this->members = new ArrayCollection();
+    	$this->officers = new ArrayCollection();
     }
     /*
     public function findOneByIdJoinedToMembers($id) {
@@ -136,5 +137,25 @@ class Club
     public function getLogs()
     {
         return $this->logs;
+    }
+
+    /**
+     * Add officers
+     *
+     * @param phnx\VccBundle\Entity\ClubOfficer $officers
+     */
+    public function addOfficers(\phnx\VccBundle\Entity\ClubOfficer $officers)
+    {
+        $this->officers[] = $officers;
+    }
+
+    /**
+     * Get officers
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getOfficers()
+    {
+        return $this->officers;
     }
 }

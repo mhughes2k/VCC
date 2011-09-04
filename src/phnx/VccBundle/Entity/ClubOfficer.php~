@@ -64,4 +64,24 @@ class ClubOfficer
 	 * @ORM\ManyToOne(targetEntity="Club",inversedBy="officers")
 	 */
 	private $club;
+
+    /**
+     * Set club
+     *
+     * @param phnx\VccBundle\Entity\Club $club
+     */
+    public function setClub(\phnx\VccBundle\Entity\Club $club)
+    {
+        $this->club = $club;
+    }
+
+    /**
+     * Get club
+     *
+     * @return phnx\VccBundle\Entity\Club 
+     */
+    public function getClub()
+    {
+        return $this->club;
+    }
 }

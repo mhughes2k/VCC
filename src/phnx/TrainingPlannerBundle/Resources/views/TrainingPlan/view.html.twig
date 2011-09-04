@@ -1,7 +1,61 @@
-{% extends 'phnxVccBundle::vccbase.html.twig' %}
+{% extends 'phnxVccBundle::vccbase_loggedin.html.twig' %}
 {% block title %}
 Training Plan
 {% endblock %}
 {% block body %}
-Training Plan
+{{ plan.id }}
+Started : {{ plan.startdate|date('d/m/Y') }}
+<div>
+<div class='title'>Goals</div>
+</div>
+
+<div>
+<div class='title toggle pointer'>Add Entry</div>
+<form class='popup' action="{{ path('training_add_entry',{'planid':plan.id}) }}" method="post" {{ form_enctype(newentryform) }}>
+<h2>Add Entry</h2>
+
+{{ form_widget(newentryform) }}
+<input type='submit' /><button class='cancel'>Cancel</button>
+</form>
+<div>
+
+<div class='title'>Entries</div>
+<table>
+{% if (entries) %}
+<tr>
+<th>Date </th>
+<th>Sleep</th>
+<th>Fatigued</th>
+<th>Stress</th>
+<th>Soreness</th>
+<th>Avg. Heart Rate</th>
+<th>Resting Heart Rate </th>
+<th>Weight</th>
+<th>Distance</th>
+<th>Workout Rating</th>
+<th>Notes</th>
+</tr>
+{% for entry in entries %}
+<tr>
+<td>{{ entry.Date | date('d/m/Y') }}</td>
+<td>{{ entry.sleep }}</td>
+<td>{{ entry.fatigue }}</td>
+<td>{{ entry.stress }}</td>
+<td>{{ entry.Soreness }}</td>
+<td>{{ entry.AverageHeartRate}}</td>
+<td>{{ entry.RestingHeartRate }}</td>
+<td>{{ entry.Weight }}</td>
+<td>{{ entry.Weather }}</td>
+<td>{{ entry.Distance }}</td>
+<td>{{ entry.WorkoutRating }}</td>
+<td>{{ entry.Notes }}</td>
+</tr>
+{% endfor %}
+{% else %}
+No Entries
+{% endif %}
+</table>
+
+</div>
+
 {% endblock %}

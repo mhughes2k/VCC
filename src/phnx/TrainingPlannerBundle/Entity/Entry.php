@@ -31,140 +31,140 @@ class Entry
     /**
      * @var decimal $sleep
      *
-     * @ORM\Column(name="sleep", type="decimal")
+     * @ORM\Column(name="sleep", type="decimal", nullable="true")
      */
     private $sleep;
 
     /**
      * @var boolean $fatigue
      *
-     * @ORM\Column(name="fatigue", type="boolean")
+     * @ORM\Column(name="fatigue", type="boolean", nullable="true")
      */
     private $fatigue;
 
     /**
      * @var boolean $stress
      *
-     * @ORM\Column(name="stress", type="boolean")
+     * @ORM\Column(name="stress", type="boolean", nullable="true")
      */
     private $stress;
 
     /**
      * @var boolean $Soreness
      *
-     * @ORM\Column(name="Soreness", type="boolean")
+     * @ORM\Column(name="Soreness", type="boolean", nullable="true")
      */
     private $Soreness;
 
     /**
      * @var integer $RestingHeartRate
      *
-     * @ORM\Column(name="RestingHeartRate", type="integer")
+     * @ORM\Column(name="RestingHeartRate", type="integer", nullable="true")
      */
     private $RestingHeartRate;
 
     /**
      * @var decimal $Weight
      *
-     * @ORM\Column(name="Weight", type="decimal")
+     * @ORM\Column(name="Weight", type="decimal", nullable="true")
      */
     private $Weight;
 
     /**
      * @var text $PlannedWorkout
      *
-     * @ORM\Column(name="PlannedWorkout", type="text")
+     * @ORM\Column(name="PlannedWorkout", type="text", nullable="true")
      */
     private $PlannedWorkout;
 
     /**
      * @var text $Weather
      *
-     * @ORM\Column(name="Weather", type="text")
+     * @ORM\Column(name="Weather", type="text", nullable="true")
      */
     private $Weather;
 
     /**
      * @var text $Route
      *
-     * @ORM\Column(name="Route", type="text")
+     * @ORM\Column(name="Route", type="text", nullable="true")
      */
     private $Route;
 
     /**
      * @var decimal $Distance
      *
-     * @ORM\Column(name="Distance", type="decimal")
+     * @ORM\Column(name="Distance", type="decimal", nullable="true")
      */
     private $Distance;
 
     /**
      * @var decimal $Duration
      *
-     * @ORM\Column(name="Duration", type="decimal")
+     * @ORM\Column(name="Duration", type="decimal", nullable="true")
      */
     private $Duration;
 
     /**
      * @var integer $AverageHeartRate
      *
-     * @ORM\Column(name="AverageHeartRate", type="integer")
+     * @ORM\Column(name="AverageHeartRate", type="integer", nullable="true")
      */
     private $AverageHeartRate;
 
     /**
      * @var string $Zone1
      *
-     * @ORM\Column(name="Zone1", type="string", length=255)
+     * @ORM\Column(name="Zone1", type="string", length=255, nullable="true")
      */
     private $Zone1;
 
     /**
      * @var string $Zone2
      *
-     * @ORM\Column(name="Zone2", type="string", length=255)
+     * @ORM\Column(name="Zone2", type="string", length=255, nullable="true")
      */
     private $Zone2;
 
     /**
      * @var string $Zone3
      *
-     * @ORM\Column(name="Zone3", type="string", length=255)
+     * @ORM\Column(name="Zone3", type="string", length=255, nullable="true")
      */
     private $Zone3;
 
     /**
      * @var string $Zone4
      *
-     * @ORM\Column(name="Zone4", type="string", length=255)
+     * @ORM\Column(name="Zone4", type="string", length=255, nullable="true")
      */
     private $Zone4;
 
     /**
      * @var string $Zone5
      *
-     * @ORM\Column(name="Zone5", type="string", length=255)
+     * @ORM\Column(name="Zone5", type="string", length=255, nullable="true")
      */
     private $Zone5;
 
     /**
      * @var integer $WorkoutRating
      *
-     * @ORM\Column(name="WorkoutRating", type="integer")
+     * @ORM\Column(name="WorkoutRating", type="integer", nullable="true")
      */
     private $WorkoutRating;
 
     /**
      * @var text $Notes
      *
-     * @ORM\Column(name="Notes", type="text")
+     * @ORM\Column(name="Notes", type="text", nullable="true")
      */
     private $Notes;
 
     /**
      * @var text $Nutrition
      *
-     * @ORM\Column(name="Nutrition", type="text")
+     * @ORM\Column(name="Nutrition", type="text", nullable="true")
      */
     private $Nutrition;
 
@@ -597,5 +597,30 @@ class Entry
     public function getNutrition()
     {
         return $this->Nutrition;
+    }
+    
+    /**
+     *@ORM\ManyToOne(targetEntity="phnx\TrainingPlannerBundle\Entity\TrainingPlan",inversedBy="Entries")
+     */
+    protected $TrainingPlan;
+
+    /**
+     * Set trainingplan
+     *
+     * @param phnx\TrainingPlannerBundle\Entity\TrainingPlan $trainingplan
+     */
+    public function setTrainingplan(\phnx\TrainingPlannerBundle\Entity\TrainingPlan $trainingplan)
+    {
+        $this->TrainingPlan = $trainingplan;
+    }
+
+    /**
+     * Get trainingplan
+     *
+     * @return phnx\TrainingPlannerBundle\Entity\TrainingPlan 
+     */
+    public function getTrainingplan()
+    {
+        return $this->TrainingPlan;
     }
 }

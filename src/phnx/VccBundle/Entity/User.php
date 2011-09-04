@@ -287,4 +287,24 @@ class User implements UserInterface
 	public function getSalt() {
 		return "";
 	}
+
+    /**
+     * Add trainingplans
+     *
+     * @param phnx\TrainingPlannerBundle\Entity\TrainingPlan $trainingplans
+     */
+    public function addTrainingplans(\phnx\TrainingPlannerBundle\Entity\TrainingPlan $trainingplans)
+    {
+        $this->trainingplans[] = $trainingplans;
+    }
+
+    /**
+     * Get trainingplans
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getTrainingplans()
+    {
+        return $this->trainingplans;
+    }
 }
