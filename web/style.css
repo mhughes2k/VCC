@@ -1,0 +1,15 @@
+.pointer {
+	cursor:pointer;
+}
+
+.popup {
+	position:absolute;
+	left:10%;
+	right:10%;
+	top:10%;
+	bottom:20%;
+	border:1px solid silver;
+	background-color:white;
+	overflow:scroll;
+	padding:10px;
+}
