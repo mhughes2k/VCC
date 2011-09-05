@@ -16,10 +16,9 @@ class UserController extends Controller
     		array()
     	);
 	}
-    public function indexAction() {//$clubid) {
-		echo "user list";
+    public function viewAction() {//$clubid) {
     	return $this->render(
-    		'phnxVccBundle:Default:index.html.twig', 
+    		'phnxVccBundle:User:view.html.twig', 
     		array()
     	);
     }

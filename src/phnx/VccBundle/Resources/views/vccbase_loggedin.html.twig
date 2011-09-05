@@ -14,12 +14,12 @@
     <div>Menu</div>
     Hello {{ app.user.displayname }}.
     <ul>
-    	<li>
+    	<!-- if user is a member of a club //-->
+    	<li style='display:none'>
     	{% if is_granted('ROLE_CLUB_ADMIN') %}<a href="{{ path('phnxVccBundle_viewclubs') }}">Club</a>
     	{% else %}
     	Club
     	{% endif %}
-    	</li>
     	
     	<ul>
     		<li>Details</li>
@@ -32,11 +32,14 @@
 	    		<li>Events</li>
 	    	</ul>
     	</ul>
+    	</li>
+    	
+    	<!-- end  if user is a member of a club //-->
     	<li>User</li>
     	<ul>
-    		<li>My Details</li>
-    		<li>My Routes</li>
-    		<li>Plan a Run</li>
+    		<li><a href='{{ path('my_details') }}'>My Details</a></li>
+    		<li><a href='{{ path('my_routes') }}'>My Routes</a></li>
+    		<li><a href='{{ path('plan_a_run') }}'>Plan a Run</a></li>
     		<li><a href='{{ path('training_home') }}'>Training Plans</a></li>
     	</ul>
     	<li><a href="{{ path('phnxVccBundle_logout') }}">Logout</a></li>

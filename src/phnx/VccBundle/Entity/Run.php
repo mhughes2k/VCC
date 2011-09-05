@@ -5,12 +5,12 @@ namespace phnx\VccBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * phnx\VccBundle\Entity\ClubRun
+ * phnx\VccBundle\Entity\Run
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class ClubRun
+class Run
 {
     /**
      * @var integer $id

@@ -30,9 +30,15 @@ phnxVccBundle_viewclub:
     defaults: { _controller: phnxVccBundle:Club:view, clubid:0 }
 
 
-phnxVccBundle_users:
+
+
+my_details:
     pattern: /user
-    defaults: { _controller: phnxVccBundle:User:index}
+    defaults: { _controller: phnxVccBundle:User:view} 
+
+phnxVccBundle_users:
+    pattern: /users
+    defaults: { _controller: phnxVccBundle:User:view}
 
 phnxVccBundle_register:
     pattern: /register
@@ -42,7 +48,11 @@ phnxVccBundle_create_user:
     pattern: /create
     defaults: { _controller: phnxVccBundle:User:create}
 
-phnxVccBundle_runs:
+my_routes:
+    pattern: /routes
+    defaults: { _controller: phnxVccBundle:User:index} 
+
+plan_a_run:
     pattern: /runs
     defaults: { _controller: phnxVccBundle:Run:index}
 

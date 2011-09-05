@@ -604,22 +604,24 @@ class Entry
      */
     protected $TrainingPlan;
 
+
+
     /**
-     * Set trainingplan
+     * Set TrainingPlan
      *
-     * @param phnx\TrainingPlannerBundle\Entity\TrainingPlan $trainingplan
+     * @param phnx\TrainingPlannerBundle\Entity\TrainingPlan $trainingPlan
      */
-    public function setTrainingplan(\phnx\TrainingPlannerBundle\Entity\TrainingPlan $trainingplan)
+    public function setTrainingPlan(\phnx\TrainingPlannerBundle\Entity\TrainingPlan $trainingPlan)
     {
-        $this->TrainingPlan = $trainingplan;
+        $this->TrainingPlan = $trainingPlan;
     }
 
     /**
-     * Get trainingplan
+     * Get TrainingPlan
      *
      * @return phnx\TrainingPlannerBundle\Entity\TrainingPlan 
      */
-    public function getTrainingplan()
+    public function getTrainingPlan()
     {
         return $this->TrainingPlan;
     }
